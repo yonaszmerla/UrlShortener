@@ -1,8 +1,4 @@
-import json
-from typing import Union
-
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect, HttpResponseBadRequest, Http404
-from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
 from .models import ShortUrl
