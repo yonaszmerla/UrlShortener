@@ -1,4 +1,4 @@
-from django.http import HttpRequest, HttpResponse, HttpResponseRedirect, HttpResponseBadRequest, Http404
+from django.http import HttpRequest, HttpResponse, HttpResponseRedirect, HttpResponseBadRequest, HttpResponseNotAllowed
 from django.views.decorators.csrf import csrf_exempt
 
 from .models import ShortUrl
@@ -29,7 +29,7 @@ def create(request: HttpRequest) -> HttpResponse:
         # return the short url
         return HttpResponse(short_url.url)
     else:
-        return HttpResponseBadRequest("Only POST method is allowed")
+        return HttpResponseNotAllowed("Only POST method is allowed")
 
 
 @csrf_exempt

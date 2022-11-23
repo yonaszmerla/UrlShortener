@@ -18,6 +18,10 @@ class TestApi(TestCase):
         response = self.client.post('http://localhost:8000/create', data={})
         assert response.status_code == 400
 
+    def test_create_get(self):
+        response = self.client.get('http://localhost:8000/create')
+        assert response.status_code == 405
+
     def test_short(self):
         response = self.client.post('http://localhost:8000/create', data={'url': 'https://www.google.com'})
         assert response.status_code == 200
